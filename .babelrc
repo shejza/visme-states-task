@@ -1,0 +1,16 @@
+"presets": [
+    "@babel/preset-react",
+    "@babel/preset-env",
+    ["react-app", {
+      "absoluteRuntime": false
+    }]
+  ],
+  "plugins": [
+    ["@babel/plugin-proposal-decorators", {
+      "legacy": true
+    }],
+    ["@babel/plugin-proposal-class-properties", {
+      "loose": true
+    }],
+    "transform-decorators-legacy"
+  ]

@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+.main {
+  margin:10%;
+}
+
+.search {
+  background-image: url('https://www.w3schools.com/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+.table th, .table td {
+  text-align: left;
+  padding: 12px;
+}
+
+.table tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.table tr.header, .table tr:hover {
+  background-color: #f1f1f1;
+}
+.sorting {
+  background-image: url('https://cdn.datatables.net/1.10.24/images/sort_both.png');
+  background-repeat: no-repeat;
+  background-position: center left 50px;
+  cursor: pointer;
+}
