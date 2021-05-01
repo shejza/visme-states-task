@@ -6,12 +6,14 @@ import { observer } from "mobx-react-lite";
 import { Search } from "./components/search";
 
 export const States = inject("statesStore")(
+  //Component is wrapped by observer in order to be aware for mobx state changes
   observer((props) => {
     const { states, isLoadingStates } = props.statesStore;
     const [responseTime, setResponseTime] = useState(0);
     const [searchTerm, setSearchTerm] = useState("");
     const [sort, toggleSort] = useState(0);
 
+    //On component startup load state using mobx store
     useEffect(() =>
       autorun(() => {
         props.statesStore.loadStates();
@@ -29,12 +31,14 @@ export const States = inject("statesStore")(
       };
     });
 
+    // Searching states that include the searching term
     const searchFilter = (item) => {
-        return item.toLowerCase().includes(searchTerm.toLocaleLowerCase());
+      return item.toLowerCase().includes(searchTerm.toLocaleLowerCase());
     };
 
+    // Sorting strings based on condition
     const sortFilter = (a, b) => {
-        return sort ? b.localeCompare(a) : a.localeCompare(b)
+      return sort ? b.localeCompare(a) : a.localeCompare(b);
     };
 
     return (

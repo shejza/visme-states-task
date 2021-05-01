@@ -10,9 +10,11 @@ export class StatesStore {
     this.isLoadingStates = true;
     this.stateErrors = undefined;
 
-    return getData().then(response => response.text())
+    //Load states from json file and update mobx store state in order to make states array accessible from elsewhere within the application
+    return getData()
+      .then((response) => response.text())
       .then(
-       action((responseText) => {
+        action((responseText) => {
           const responseContent = JSON.parse(responseText);
           this.states = responseContent.states;
         })
@@ -20,7 +22,7 @@ export class StatesStore {
       .catch(
         action((err) => {
           this.stateErrors = err;
-            throw err;
+          throw err;
         })
       )
       .finally(
